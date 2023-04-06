@@ -1,0 +1,79 @@
+@import "../../style_utils/mixins.scss";
+@import "../../style_utils/vars.scss";
+
+.IPInfoSectionWrapper {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  padding: 20px 40px;
+  width: calc(100% - 40px);
+  max-width: 560px;
+
+  background-color: var(--primary-background-color);
+  text-align: center;
+  border-radius: 10px;
+
+  @include tablet {
+    padding: 20px;
+    text-align: left;
+    width: calc(100% - 150px);
+    max-width: 75%;
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    & li {
+      position: relative;
+      overflow-wrap: break-word;
+      @include tablet {
+        width: calc(25% - 10px);
+        min-height: 120px;
+        padding: 10px;
+      }
+
+      &:not(:last-child)::after {
+        @include tablet {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -56px;
+          transform: translateY(-50%);
+          width: 100px;
+          height: 1px;
+          background-color: var(--dark-gray);
+          rotate: 90deg;
+        }
+      }
+
+      & h2 {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--dark-gray);
+        @include tablet {
+          font-size: 16px;
+        }
+      }
+
+      & p {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--very-dark-gray);
+        margin-top: 5px;
+        @include tablet {
+          font-weight: 700;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
